@@ -22,7 +22,6 @@ export default class PageNavigation {
 		this.prevBp = null
 
 		this.anchors = selectors(`${el} a[href^="#"]`)
-		console.log(this.anchors)
 
 	}
 
@@ -40,21 +39,36 @@ export default class PageNavigation {
 	}
 
 	handlers() {
+		
 		window.addEventListener('resize', () => this.resize())
+
+		for (let i = 0; i < this.anchors.length; i++) {
+			this.anchors[i].addEventListener('click', (e) => { 
+				e.preventDefault()
+				this.show(this.anchors[i])
+			})
+		}
 	}
 
 	resize() {
 		if (!this.bps) return
 		this.ww = window.innerWidth
-		this.get_breakpoint()	
+		this.get_breakpoint()
 	}
 
 	reset() {
-
+		console.log('reset')
 	}
 
-	update() {
+	show(anchor) {
+		
+		const href = anchor.getAttribute('href')
+		const el = selector(href)
+		el.scrollIntoView()
+		anchor.classList.add('is-active')
 
+		const level = this.get_anchor_level(anchor)
+		console.log(level)
 	}
 
 	// Getters
@@ -91,7 +105,7 @@ export default class PageNavigation {
 			Object.keys(this.responsive[this.bp]).map(x => {
 				this[x] = this.responsive[this.bp][x]
 			})
-		} 
+		}
 
 		else {
 			Object.keys(this.default).map(x => {
@@ -100,6 +114,21 @@ export default class PageNavigation {
 		}
 
 		this.reset()
+	}
+
+	get_anchor_level(anchor) {
+		let level = 0
+		let p = anchor.parentNode
+		const next = (p) => {
+			if (p !== this.el) {
+				p = p.parentNode
+				level += 1
+				next(p)
+			}
+		}
+
+		next(p)
+		return level
 	}
 
 
