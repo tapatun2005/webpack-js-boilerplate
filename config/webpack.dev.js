@@ -24,9 +24,10 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: {
-          loader: "babel-loader" // transpiling our JavaScript files using Babel and webpack
-        }
+        use: ["babel-loader", "eslint-loader"]
+        // use: {
+        //   loader: "babel-loader" // transpiling our JavaScript files using Babel and webpack
+        // }
       },
       {
         test: /\.(sa|sc|c)ss$/,
