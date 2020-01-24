@@ -1,1 +1,5 @@
-export const hello = () => console.log('Hello from import example!')
+export default class PageNavigation {
+	constructor() {
+		
+	}
+}
