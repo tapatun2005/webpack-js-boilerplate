@@ -9,8 +9,8 @@ import './styles/style.sass'
 // @Functions
 // ------------------------
 import { 
-	selector, 
-	selectors 
+	// selector, 
+	// selectors 
 } from './scripts/Functions/functions'
 // ------------------------
 
@@ -23,5 +23,25 @@ import {
 // ------------------------
 
 
-console.log(selector, selectors)
-console.log(new PageNavigation())
+// EXAMPLE
+// ------------------------
+class App {
+	constructor() {
+		this.pageNavigation = new PageNavigation('#navigation', {
+			responsive: {
+				991: {
+					progressBar: false
+				},
+				480: {
+					progressBar: true
+				}
+			}
+		})
+	}
+
+	init() {
+		this.pageNavigation.init()
+	}
+}
+
+new App().init()
