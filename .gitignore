@@ -27,6 +27,7 @@ jspm_packages/
 # production
 /build
 /dist
+/lib
 
 # Optional npm cache directory
 .npm
@@ -36,3 +37,7 @@ jspm_packages/
 
 # Yarn Integrity file
 .yarn-integrity
+
+
+# Temporary files
+.DS_Store

@@ -4,16 +4,15 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
   entry: {
-    main: "./src/index.js",
-    additional: "./src/index.js"
+    index: "./src/index.js"
   },
   output: {
-    path: path.join(__dirname, "../build"),
-    filename: "[name].bundle.js"
+    path: path.join(__dirname, "../lib"),
+    filename: "[name].js"
   },
   mode: "development",
   devServer: {
-    contentBase: path.join(__dirname, "../build"),
+    contentBase: path.join(__dirname, "../lib"),
     compress: true,
     port: 3000,
     overlay: true

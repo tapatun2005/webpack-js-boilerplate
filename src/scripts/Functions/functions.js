@@ -1,4 +1,4 @@
-import { selector, selectors } from './Selector/Selectors.js'
+import { selector, selectors } from './Selectors/Selectors.js'
 
 export {
 	selector,

@@ -11,12 +11,11 @@ const glob = require("glob");
 
 module.exports = {
   entry: {
-    main: "./src/index.js"
+    index: "./src/index.js"
   },
   output: {
-    path: path.join(__dirname, "../build"),
-    filename: "[name].[chunkhash:8].bundle.js",
-    chunkFilename: "[name].[chunkhash:8].chunk.js"
+    path: path.join(__dirname, "../lib"),
+    filename: "[name].js"
   },
   mode: "production",
   module: {
@@ -87,8 +86,7 @@ module.exports = {
     }),
     // This plugin will extract all css to one file
     new MiniCssExtractPlugin({
-      filename: "[name].[chunkhash:8].bundle.css",
-      chunkFilename: "[name].[chunkhash:8].chunk.css",
+      filename: "[name].css"
     }),
     // The plugin will generate an HTML5 file for you that includes all your webpack bundles in the body using script tags
     new HtmlWebpackPlugin({
