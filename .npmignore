@@ -2,9 +2,9 @@
 src/
 config/
 node_modules/
-lib/
 build/
 dev/
+dist/
 
 # Dev files
 .babelIrc
@@ -13,7 +13,3 @@ dev/
 .eslintrc
 
 postcss.config.js
-
-
-#Add files
-!lib/index.js

@@ -1,5 +1,5 @@
 import PageNavigation from './PageNavigation/PageNavigation'
 
-export { 
+export default { 
 	PageNavigation
 }

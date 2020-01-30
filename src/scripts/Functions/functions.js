@@ -1,6 +1,6 @@
 import { $selector, $selectors } from './Selectors/Selectors.js'
 
-export {
+export default {
 	$selector,
 	$selectors
 }

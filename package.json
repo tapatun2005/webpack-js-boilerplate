@@ -5,11 +5,14 @@
   "author": "Vlad Kuzmin",
   "license": "MIT",
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
     "@babel/core": "^7.7.7",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/plugin-transform-modules-commonjs": "^7.8.3",
     "@babel/preset-env": "^7.7.7",
     "@babel/register": "^7.8.3",
     "babel-loader": "^8.0.6",
+    "babel-plugin-add-module-exports": "^1.0.2",
     "babel-preset-latest": "^6.24.1",
     "brotli-webpack-plugin": "^1.1.0",
     "clean-webpack-plugin": "^3.0.0",
@@ -35,7 +38,8 @@
   },
   "scripts": {
     "start": "webpack-dev-server --open --config=config/webpack.dev.babel.js",
-    "build": "webpack --config=config/webpack.prod.babel.js"
+    "build": "webpack --config=config/webpack.prod.babel.js",
+    "transpile": "babel src/scripts -d lib/ --copy-files"
   },
   "dependencies": {
     "@babel/polyfill": "^7.7.0",
@@ -48,6 +52,6 @@
     "last 2 versions"
   ],
   "files": [
-    "lib/index.js"
+    "lib/*"
   ]
 }

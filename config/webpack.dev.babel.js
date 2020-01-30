@@ -7,12 +7,12 @@ module.exports = {
     index: "./src/index.js"
   },
   output: {
-    path: path.join(__dirname, "../lib"),
+    path: path.join(__dirname, "../dist"),
     filename: "[name].js"
   },
   mode: "development",
   devServer: {
-    contentBase: path.join(__dirname, "../lib"),
+    contentBase: path.join(__dirname, "../dist"),
     compress: true,
     port: 3000,
     overlay: true
