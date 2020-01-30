@@ -1,14 +1,16 @@
+import { Config } from './config'
+
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
+console.log(Config.views)
+
 module.exports = {
-  entry: {
-    index: "./src/index.js"
-  },
+  entry: Config.views,
   output: {
     path: path.join(__dirname, "../dist"),
-    filename: "[name].js"
+    filename: "[name].bundle.js"
   },
   mode: "development",
   devServer: {
@@ -27,6 +29,11 @@ module.exports = {
         // use: {
         //   loader: "babel-loader" // transpiling our JavaScript files using Babel and webpack
         // }
+      },
+      {
+        test: /\.tsx?$/,
+        exclude: /node_modules/,
+        use: 'ts-loader'
       },
       {
         test: /\.(sa|sc|c)ss$/,

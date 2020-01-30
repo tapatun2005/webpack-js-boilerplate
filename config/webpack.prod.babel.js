@@ -1,3 +1,5 @@
+import { Config } from './config'
+
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
@@ -10,12 +12,11 @@ const PurgecssPlugin = require('purgecss-webpack-plugin');
 const glob = require("glob");
 
 module.exports = {
-  entry: {
-    index: "./src/index.js"
-  },
+  entry: Config.views,
   output: {
     path: path.join(__dirname, "../dist"),
-    filename: "[name].js"
+    filename: "[name].[chunkhash:8].bundle.js",
+    chunkFilename: "[name].[chunkhash:8].chunk.js"
   },
   mode: "production",
   module: {
@@ -61,24 +62,21 @@ module.exports = {
     ]
   },
   optimization: {
-    minimize: false
+    minimizer: [new TerserJSPlugin(), new OptimizeCSSAssetsPlugin()],
+    splitChunks: {
+      cacheGroups: {
+        commons: {
+          test: /[\\/]node_modules[\\/]/,
+          name: "vendors",
+          chunks: "all"
+        }
+      },
+      chunks: "all"
+    },
+    runtimeChunk: {
+      name: "runtime"
+    }
   },
-  // optimization: {
-  //   minimizer: [new TerserJSPlugin(), new OptimizeCSSAssetsPlugin()],
-  //   splitChunks: {
-  //     cacheGroups: {
-  //       commons: {
-  //         test: /[\\/]node_modules[\\/]/,
-  //         name: "vendors",
-  //         chunks: "all"
-  //       }
-  //     },
-  //     chunks: "all"
-  //   },
-  //   runtimeChunk: {
-  //     name: "runtime"
-  //   }
-  // },
   plugins: [
     // CleanWebpackPlugin will do some clean up/remove folder before build
     // In this case, this plugin will remove 'dist' and 'build' folder before re-build again
@@ -89,7 +87,8 @@ module.exports = {
     }),
     // This plugin will extract all css to one file
     new MiniCssExtractPlugin({
-      filename: "[name].css"
+      filename: "[name].[chunkhash:8].bundle.css",
+      chunkFilename: "[name].[chunkhash:8].chunk.css",
     }),
     // The plugin will generate an HTML5 file for you that includes all your webpack bundles in the body using script tags
     new HtmlWebpackPlugin({
