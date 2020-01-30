@@ -59,23 +59,26 @@ module.exports = {
         }
       }
     ]
-  },  
-  optimization: {
-    minimizer: [new TerserJSPlugin(), new OptimizeCSSAssetsPlugin()],
-    splitChunks: {
-      cacheGroups: {
-        commons: {
-          test: /[\\/]node_modules[\\/]/,
-          name: "vendors",
-          chunks: "all"
-        }
-      },
-      chunks: "all"
-    },
-    runtimeChunk: {
-      name: "runtime"
-    }
   },
+  optimization: {
+    minimize: false
+  },
+  // optimization: {
+  //   minimizer: [new TerserJSPlugin(), new OptimizeCSSAssetsPlugin()],
+  //   splitChunks: {
+  //     cacheGroups: {
+  //       commons: {
+  //         test: /[\\/]node_modules[\\/]/,
+  //         name: "vendors",
+  //         chunks: "all"
+  //       }
+  //     },
+  //     chunks: "all"
+  //   },
+  //   runtimeChunk: {
+  //     name: "runtime"
+  //   }
+  // },
   plugins: [
     // CleanWebpackPlugin will do some clean up/remove folder before build
     // In this case, this plugin will remove 'dist' and 'build' folder before re-build again

@@ -8,16 +8,22 @@
 // @Functions
 // ------------------------
 import { $selector, $selectors } from './scripts/Functions/functions'
-// ------------------------
+// // // ------------------------
 
 
-// @Components
-// ------------------------
+// // // @Components
+// // // ------------------------
 import { PageNavigation } from './scripts/Components/components'
-// ------------------------
+// // // ------------------------
 
 export {
 	$selector,
 	$selectors,
 	PageNavigation
 }
+
+// console.log('hello')
+
+import * as Name from './scripts/lib'
+
+console.log(Name)
