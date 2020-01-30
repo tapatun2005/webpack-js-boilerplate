@@ -3,8 +3,8 @@ import './PageNavigation.scss'
 
 // @Functions
 import {
-	selector,
-	selectors
+	$selector,
+	$selectors
 } from '../../../scripts/Functions/functions'
 
 
@@ -13,7 +13,7 @@ export default class PageNavigation {
 	
 	constructor(el, config = {}) {
 		
-		this.el = selector(el)
+		this.el = $selector(el)
 		this.responsive = config.responsive || null
 		this.default = this.get_default(config)
 		
@@ -21,7 +21,7 @@ export default class PageNavigation {
 		this.ww = window.innerWidth
 		this.prevBp = null
 
-		this.anchors = selectors(`${el} a[href^="#"]`)
+		this.anchors = $selectors(`${el} a[href^="#"]`)
 
 	}
 
@@ -63,7 +63,7 @@ export default class PageNavigation {
 	show(anchor) {
 		
 		const href = anchor.getAttribute('href')
-		const el = selector(href)
+		const el = $selector(href)
 		el.scrollIntoView()
 		anchor.classList.add('is-active')
 

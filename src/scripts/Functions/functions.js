@@ -1,6 +1,6 @@
-import { selector, selectors } from './Selectors/Selectors.js'
+import { $selector, $selectors } from './Selectors/Selectors.js'
 
 export {
-	selector,
-	selectors
+	$selector,
+	$selectors
 }
