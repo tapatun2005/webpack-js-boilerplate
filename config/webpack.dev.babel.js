@@ -36,9 +36,27 @@ module.exports = {
         test: /\.(sa|sc|c)ss$/,
         use: [
           "style-loader", // creates style nodes from JS strings
-          "css-loader", // translates CSS into CommonJS
-          "postcss-loader", // Loader for webpack to process CSS with PostCSS
-          "sass-loader" // compiles Sass to CSS, using Node Sass by default
+          // "css-loader", // translates CSS into CommonJS
+          // "postcss-loader", // Loader for webpack to process CSS with PostCSS
+          // "sass-loader" // compiles Sass to CSS, using Node Sass by default
+          {
+            loader: 'css-loader',
+            options: {
+                sourceMap: true
+            }
+          },
+          {
+              loader: 'postcss-loader',
+              options: {
+                  sourceMap: true
+              },
+          },
+          {
+              loader: 'sass-loader',
+              options: {
+                  sourceMap: true
+              }
+          }
         ]
       },
       {
