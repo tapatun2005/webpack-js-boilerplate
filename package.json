@@ -39,7 +39,7 @@
   "scripts": {
     "start": "webpack-dev-server --open --config=config/webpack.dev.babel.js",
     "build": "webpack --config=config/webpack.prod.babel.js",
-    "transpile": "babel src/scripts -d lib/ --copy-files"
+    "transpile": "babel src/scripts/Lib -d lib/ --copy-files"
   },
   "dependencies": {
     "@babel/polyfill": "^7.7.0",
@@ -52,7 +52,6 @@
     "last 2 versions"
   ],
   "files": [
-    "lib/*",
-    "!lib/Views"
+    "lib/*"
   ]
 }

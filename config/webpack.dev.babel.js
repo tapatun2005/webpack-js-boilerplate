@@ -1,10 +1,10 @@
 import { Config } from './config'
 
+console.log(Config)
+
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-
-console.log(Config.views)
 
 module.exports = {
   entry: Config.views,
@@ -26,9 +26,6 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: ["babel-loader", "eslint-loader"]
-        // use: {
-        //   loader: "babel-loader" // transpiling our JavaScript files using Babel and webpack
-        // }
       },
       {
         test: /\.tsx?$/,
@@ -73,9 +70,10 @@ module.exports = {
     // In this case, this plugin will remove 'dist' and 'build' folder before re-build again
     new CleanWebpackPlugin(),
     // The plugin will generate an HTML5 file for you that includes all your webpack bundles in the body using script tags
-    new HtmlWebpackPlugin({
-      template: "./src/index.html",
-      filename: "index.html"
-    }),
+    // new HtmlWebpackPlugin({
+    //   template: "./src/index.html",
+    //   filename: "index.html"
+    // }),
+    ...Config.htmlPlugins
   ]
 };

@@ -1,24 +1,47 @@
 // Packages
 const fs = require('fs')
 const path = require('path')
+const HtmlWebpackPlugin = require("html-webpack-plugin")
 
 // Routes
 const $views = './src/scripts/Views/'
+const $pages = './src/templates/Views/'
 
 export const Config = {
-    views: _readFiles($views)
+    views: _readFiles($views),
+    pages: _readFiles($pages),
+    htmlPlugins: _generateHTMLplugins($pages)
 }
 
 function _readFiles(dir) {
-    const views = {};
-  
-    fs.readdirSync(dir).forEach(filename => {
-      console.log(filename)
-      const name = path.parse(filename).name
-      views[name.toLowerCase()] = `${$views}${filename}`
+    
+  const obj = {}
 
-    });
+  fs.readdirSync(dir).forEach(filename => {
+    
+    const name = path.parse(filename).name
+    const filepath = path.resolve(dir, filename);
+    const stat = fs.lstatSync(filepath)
+    const isFile = stat.isFile();
 
-    return views;
-  }
+    if (isFile) obj[name.toLowerCase()] = `${dir}${filename}`
 
+  })
+
+  return obj
+}
+
+
+function _generateHTMLplugins(dir) {
+  return fs.readdirSync(dir).map(item => {
+    // Split names and extension
+    const parts = item.split('.')
+    const name = parts[0]
+    const extension = parts[1]
+    return new HtmlWebpackPlugin({
+      filename: `${name}.html`,
+      template: `${dir}/${name}.${extension}`,
+      chunks: [name]
+    })
+  })
+}
