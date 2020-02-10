@@ -1,5 +1,4 @@
 import '../../styles/Views/Index.scss'
 
-import { $selector } from '../Lib/index.js'
+import { $selector } from 'Functions'
 console.log($selector('body'))
-console.log('INDEX')

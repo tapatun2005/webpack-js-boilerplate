@@ -10,6 +10,7 @@ const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const BrotliPlugin = require("brotli-webpack-plugin");
 const PurgecssPlugin = require('purgecss-webpack-plugin');
 const glob = require("glob");
+const imports = require('babel-plugin-transform-imports');
 
 module.exports = {
   entry: Config.views,
@@ -25,7 +26,25 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader" // transpiling our JavaScript files using Babel and webpack
+            loader: 'babel-loader',
+            query: {
+              plugins: [
+                [imports, {
+                  'Functions': {
+                    transform: function(importName, matches) {
+                      return path.join(__dirname, "../src/scripts/Lib/Functions/") + importName.toUpperCase();
+                    },
+                    preventFullImport: true
+                  },
+                  'Components': {
+                    transform: function(importName, matches) {
+                      return path.join(__dirname, "../src/scripts/Lib/Components/") + importName + '/' + importName.toUpperCase();
+                    },
+                    preventFullImport: false
+                  }
+                }]
+              ]
+            }
         }
       },
       {

@@ -3,16 +3,15 @@ import './SliderGallery.scss'
 
 // @Functions
 // -----------------
-import { 
-    $selector
-} from '../../Functions/functions'
+import {
+	$selector
+} from 'Functions'
 // -----------------
-
-console.log('SLIDER')
 
 export default class SliderGallery {
     
-    constructor(el, o = {}) {  
+    constructor(el, o = {}) { 
+        super()
         this.sliders = Array.isArray(el) ? el.map(item => $selector(item)) : [$selector(el)]
         this.isResponsive = o.responsive ? true : false
     }

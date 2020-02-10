@@ -7,8 +7,9 @@ import '../../assets/images/image-tes.jpg'
 
 // Library
 import { 
-    SliderGallery
- } from '../Lib/index.js'
+    PageNavigation, 
+    SliderGallery 
+} from 'Components'
 
  new SliderGallery(['.slider-gallery', 'body'], {
      navigation: true

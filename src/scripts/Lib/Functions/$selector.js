@@ -1,0 +1,1 @@
+export const $selector = (str) => document.querySelector(str)

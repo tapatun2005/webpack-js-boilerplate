@@ -5,14 +5,13 @@
 
 // @Functions
 // ------------------------
-import { $selector, $selectors } from './Functions/functions'
+import { $selector, $selectors } from 'Functions'
 // ------------------------
 
 
 // @Components
 // ------------------------
-import { PageNavigation } 	from './Components/components'
-import { SliderGallery } 	from './Components/components'
+import { PageNavigation, SliderGallery } from 'Components'
 // ------------------------
 
 export default {

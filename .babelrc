@@ -12,6 +12,16 @@
   "plugins": [
     "@babel/plugin-syntax-dynamic-import",
     "babel-plugin-add-module-exports",
-    "@babel/plugin-transform-modules-commonjs"
+    "@babel/plugin-transform-modules-commonjs",
+    ["transform-imports", {
+      "Functions": {
+        "transform": "../Functions/${member}",
+        "preventFullImport": true
+      },
+      "Components": {
+        "transform": "../${member}/${member}",
+        "preventFullImport": true
+      }
+    }]
   ]
 }

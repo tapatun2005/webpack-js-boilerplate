@@ -5,7 +5,7 @@ import './PageNavigation.scss'
 import {
 	$selector,
 	$selectors
-} from '../../Functions/functions'
+} from 'Functions'
 
 
 export default class PageNavigation {
