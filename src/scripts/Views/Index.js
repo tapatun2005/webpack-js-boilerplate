@@ -1,5 +1,12 @@
 import '../../styles/Views/Index.scss'
 
-import { $selector } from 'Functions'
+import { 
+    $selector, 
+    $selectors 
+} from 'Functions'
 
-console.log($selector('body', '#app'))
+console.log($selector('#app'))
+console.log($selector($selector('body'), '#app'))
+
+console.log($selectors('div'))
+console.log($selectors($selector('div'), 'p'))
