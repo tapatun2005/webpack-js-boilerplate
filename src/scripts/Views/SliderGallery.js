@@ -6,9 +6,8 @@ import '../../assets/images/image-tes.jpg'
 
 
 // Library
-import { 
-    PageNavigation, 
-    SliderGallery 
+import {
+    SliderGallery
 } from 'Components'
 
  new SliderGallery(['.slider-gallery', 'body'], {

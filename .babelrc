@@ -11,7 +11,7 @@
   ],
   "plugins": [
     "@babel/plugin-syntax-dynamic-import",
-    "babel-plugin-add-module-exports",
+    // "babel-plugin-add-module-exports",
     "@babel/plugin-transform-modules-commonjs",
     ["transform-imports", {
       "Functions": {

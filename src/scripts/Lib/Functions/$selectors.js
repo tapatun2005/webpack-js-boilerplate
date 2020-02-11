@@ -1,1 +1,1 @@
-export const $selectors = (str) => document.querySelectorAll(str)
+export default $selectors = (str) => document.querySelectorAll(str)

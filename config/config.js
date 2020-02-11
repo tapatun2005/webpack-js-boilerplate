@@ -2,6 +2,7 @@
 const fs = require('fs')
 const path = require('path')
 const HtmlWebpackPlugin = require("html-webpack-plugin")
+const transformImports = require('babel-plugin-transform-imports');
 
 // Routes
 const $views = './src/scripts/Views/'
@@ -10,7 +11,8 @@ const $pages = './src/templates/Views/'
 export const Config = {
     views: _readFiles($views),
     pages: _readFiles($pages),
-    htmlPlugins: _generateHTMLplugins($pages)
+    htmlPlugins: _generateHTMLplugins($pages),
+    babelLoader: _babelLoader()
 }
 
 function _readFiles(dir) {
@@ -44,4 +46,28 @@ function _generateHTMLplugins(dir) {
       chunks: [name]
     })
   })
+}
+
+function _babelLoader() {
+  return {
+    loader: 'babel-loader',
+    query: {
+      plugins: [
+        [transformImports, {
+          'Functions': {
+            transform: function(importName, matches) {
+              return path.join(__dirname, "../src/scripts/Lib/Functions/") + importName;
+            },
+            preventFullImport: true
+          },
+          'Components': {
+            transform: function(importName, matches) {
+              return path.join(__dirname, "../src/scripts/Lib/Components/") + importName + '/' + importName;
+            },
+            preventFullImport: false
+          }
+        }]
+      ]
+    }
+  }
 }
