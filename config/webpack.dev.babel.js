@@ -5,6 +5,7 @@ console.log(Config)
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const imports = require('babel-plugin-transform-imports');
 
 module.exports = {
   entry: Config.views,
@@ -25,7 +26,30 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: ["babel-loader", "eslint-loader"]
+        use: [
+          {
+            loader: 'babel-loader',
+            query: {
+              plugins: [
+                [imports, {
+                  'Functions': {
+                    transform: function(importName, matches) {
+                      return path.join(__dirname, "../src/scripts/Lib/Functions/") + importName.toUpperCase();
+                    },
+                    preventFullImport: true
+                  },
+                  'Components': {
+                    transform: function(importName, matches) {
+                      return path.join(__dirname, "../src/scripts/Lib/Components/") + importName + '/' + importName.toUpperCase();
+                    },
+                    preventFullImport: false
+                  }
+                }]
+              ]
+            }
+          }, 
+          "eslint-loader"
+        ]
       },
       {
         test: /\.tsx?$/,
