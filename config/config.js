@@ -43,7 +43,7 @@ function _generateHTMLplugins(dir) {
     return new HtmlWebpackPlugin({
       filename: `${name}.html`,
       template: `${dir}/${name}.${extension}`,
-      chunks: [name]
+      chunks: [name, 'vendors', 'runtime']
     })
   })
 }

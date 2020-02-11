@@ -15,8 +15,8 @@ module.exports = {
   entry: Config.views,
   output: {
     path: path.join(__dirname, "../dist"),
-    filename: "[name].[chunkhash:8].bundle.js",
-    chunkFilename: "[name].[chunkhash:8].chunk.js"
+    filename: "js/[name].[chunkhash:8].bundle.js",
+    chunkFilename: "js/[name].[chunkhash:8].chunk.js"
   },
   mode: "production",
   module: {
@@ -42,7 +42,7 @@ module.exports = {
             loader: "file-loader", // This will resolves import/require() on a file into a url and emits the file into the output directory.
             options: {
               name: "[name].[ext]",
-              outputPath: "assets/"
+              outputPath: 'assets/'
             }
           },
         ]
@@ -85,8 +85,8 @@ module.exports = {
     }),
     // This plugin will extract all css to one file
     new MiniCssExtractPlugin({
-      filename: "[name].[chunkhash:8].bundle.css",
-      chunkFilename: "[name].[chunkhash:8].chunk.css",
+      filename: "css/[name].[chunkhash:8].bundle.css",
+      chunkFilename: "css/[name].[chunkhash:8].chunk.css",
     }),
     // The plugin will generate an HTML5 file for you that includes all your webpack bundles in the body using script tags
     // new HtmlWebpackPlugin({

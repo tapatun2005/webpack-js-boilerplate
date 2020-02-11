@@ -5,6 +5,7 @@ console.log(Config)
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const imports = require('babel-plugin-transform-imports');
 
 module.exports = {
   entry: Config.views,

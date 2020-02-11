@@ -8,7 +8,6 @@
 import { $selector, $selectors } from 'Functions'
 // ------------------------
 
-
 // @Components
 // ------------------------
 import { PageNavigation, SliderGallery } from 'Components'

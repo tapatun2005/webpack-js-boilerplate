@@ -1,4 +1,4 @@
-// Styles
+ // Styles
 import '../../styles/Views/SliderGallery.scss'
 
 // Images
