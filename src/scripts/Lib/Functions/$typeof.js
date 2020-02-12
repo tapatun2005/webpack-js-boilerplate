@@ -1,15 +1,5 @@
 const $typeof = (obj) => {
-    
-    let type = ''
-    
-    if (obj instanceof Element || obj instanceof HTMLElement) {
-        type = 'HTMLElement'
-    } else {
-        type = {}.toString.call(obj).split(' ')[1].slice(0, -1)
-    }
-
-    return type
-
+    return {}.toString.call(obj).split(' ')[1].slice(0, -1)
 }
 
 export default $typeof

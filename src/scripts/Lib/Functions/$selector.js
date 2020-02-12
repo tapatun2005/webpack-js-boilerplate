@@ -1,15 +1,5 @@
-import $typeof from './$typeof'
-
 const $selector = (parent, child) => {
-    
-    if (!child) {
-        return document.querySelector(parent)
-    } else {
-        if ($typeof(parent) === 'HTMLElement') {
-            return parent.querySelector(child)
-        }
-    }
-    
+    return child ? parent.querySelector(child) : document.querySelector(parent)    
 }
 
 export default $selector
