@@ -57,6 +57,12 @@ module.exports = {
             interpolate: true
           }
         }
+      },
+      { 
+        test: /\.pug$/,
+        use: {
+          loader: "pug-loader"
+        }
       }
     ]
   },
