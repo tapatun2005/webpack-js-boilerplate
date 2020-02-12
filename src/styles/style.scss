@@ -3,8 +3,6 @@
 @import 'base/reset';
 @import 'base/base';
 
-@import 'components/page-navigation';
-
-body {
-    display: none;
-}
+@import 'layout/header';
+@import 'layout/content';
+@import 'layout/footer';

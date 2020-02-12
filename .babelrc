@@ -22,6 +22,16 @@
         "transform": "../${member}/${member}",
         "preventFullImport": true
       }
-    }]
+    }],
+    [
+      "module-resolver",
+      {
+        "root": ["./src/"],
+        "alias": {
+          "@styles": "./src/styles/"
+        }
+      }
+      
+    ]
   ]
 }
