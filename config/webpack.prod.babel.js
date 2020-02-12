@@ -53,7 +53,8 @@ module.exports = {
           loader: "html-loader",
           options: {
             attrs: ["img:src", ":data-src"],
-            minimize: true
+            minimize: true,
+            interpolate: true
           }
         }
       }
