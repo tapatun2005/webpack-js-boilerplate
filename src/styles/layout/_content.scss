@@ -7,10 +7,15 @@
 // 1. Default
 // -----------------
 #content {
-    display: grid;
-    grid-template-columns: minmax(500px, 1fr) 250px;
+    display: flex;
     grid-column-gap: 20px;
     margin: 100px 0 0 275px;
     padding: 0 40px;
+}
+
+main {
+    width: 100%;
+    max-width: 992px;
+    margin: 0 auto;
 }
 // -----------------
