@@ -31,3 +31,12 @@ h1, h2, h3, h4, h5, h6 {
 strong {
   color: $black;
 }
+
+code {
+  display: block;
+  background: $black;
+  border-radius: 5px;
+  padding: 20px 40px;
+  margin: 40px 0;
+  font-size: 0.9rem;
+}

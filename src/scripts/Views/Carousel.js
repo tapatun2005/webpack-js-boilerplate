@@ -1,2 +1,2 @@
-import { $selector } from 'Functions'
-console.log($selector)
+import '@styles/style.scss'
+import '@styles/Views/Index.scss'
