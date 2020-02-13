@@ -1,6 +1,21 @@
 @import '../utils/vars';
 
-// Slider gallery
+// SLIDER GALLERY
+// ====================
+// 1. Default
+// ====================
+
+// 1. Default
+// --------------------
 .slider-gallery {
-    background: $black;
+    position: relative;
+
+    &__images {
+        
+    }
+
+    &__text {
+        
+    }
 }
+// --------------------

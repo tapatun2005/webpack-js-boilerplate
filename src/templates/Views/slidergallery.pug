@@ -1,1 +1,23 @@
-main Hello
+extends ../Layout/header.pug
+
+block content
+  main 
+    h1 Slider Gallery
+    p This page shows the examples of slider components.
+    code= '<div>Hello</div>'
+    hr
+    .component
+        
+        .slider-gallery
+            
+            .slider-gallery__images
+                each val, index in [1, 2, 3]
+                    picture
+                        img(src="/assets/image-tes.jpg")
+            
+            .slider-gallery__text
+                each val, index in [1, 2, 3]
+                    div 
+                        h2 Title
+                        p Some text
+                        a(href="#") Link

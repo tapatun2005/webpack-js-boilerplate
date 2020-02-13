@@ -28,6 +28,12 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 125%;
 }
 
+picture,
+img {
+  display: block;
+  max-width: 100%;
+}
+
 strong {
   color: $black;
 }
@@ -45,5 +51,4 @@ hr  {
   display: block;
   border-top: 1px solid rgba($grey, 0.1);
   margin: 40px 0;
-  
 }
