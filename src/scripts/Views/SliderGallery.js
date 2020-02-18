@@ -11,13 +11,22 @@ import {
     SliderGallery
 } from 'Components'
 
- new SliderGallery('.slider-gallery', {
-     controls: false,
-     navigation: true,
-     responsive: {
-        992: {
-            navigation: true
+ new SliderGallery(
+    [
+        '.slider-gallery__images',
+        '.slider-gallery__text'
+    ], 
+    {
+        controls: true,
+        navigation: true,
+        responsive: {
+            767: {
+                constrols: false
+            },
+            992: {
+                controls: true
+            }
         }
-     }
- })
+    }
+ )
 
